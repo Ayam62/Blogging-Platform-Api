@@ -1,4 +1,4 @@
-# MediaStorageCloud
+# Blogging Platform Api
 
 A full-stack blog platform with media storage, user authentication, content management, and public/private API sections. Built with Node.js, Express, MongoDB, and Cloudinary for image uploads.
 
