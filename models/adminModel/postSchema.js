@@ -23,7 +23,13 @@ const blogSchema = new Schema({
   tags: [String],
 
 
-  comments: [{ body: String, date: Date }],
+comments: [
+{
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    comment: String,
+    createdAt: { type: Date, default: Date.now },
+}
+],
   date: { type: Date, default: Date.now },
   hidden: Boolean,
 },{ timestamps: true })

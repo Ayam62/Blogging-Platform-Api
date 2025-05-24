@@ -1,15 +1,14 @@
 import Blog from "../../models/adminModel/postSchema.js"
 
-export const getAllBlogs= async(req,res)=>{
-    try{
-        //const blogs = await Blog.find().sort({ createdAt: -1 });
-        const blogs= await Blog.find().sort({createdAt:-1});
-        res.status(200).json(blogs)
-    }catch(error){
-            console.error("Error fetching blogs:", error);
-            res.status(500).json({ error: 'Failed to fetch blogs' });
-    }
-}
+export const getMyPosts = async (req, res) => {
+  try {
+    const myPosts = await Blog.find({ author: req.user.id }).sort({ createdAt: -1 });
+    res.status(200).json(myPosts);
+  } catch (error) {
+    console.error("Error fetching user's blog posts:", error);
+    res.status(500).json({ error: "Failed to retrieve your blog posts" });
+  }
+};
 export const PostBlogs= async (req,res)=>{
     try{
         const { title, content, imageUrl, imagePublicId, author,category,tags } = req.body;

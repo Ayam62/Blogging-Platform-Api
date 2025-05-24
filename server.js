@@ -7,6 +7,8 @@ import connectDB from "./configs/db.js";
 import postRouter from "./routes/adminRoutes/postRoutes.js";
 import authRouter from "./routes/authRoutes/authRouter.js";
 import userRouter from "./routes/adminRoutes/userRoute.js";
+import publicPostsRouter from "./routes/publicRoutes/publicPostRouter.js"
+
 
 dotenv.config();
 
@@ -23,6 +25,8 @@ app.use("/api/auth",authRouter)
 app.use("/api/uploads",uploadRouter)
 app.use("/api/posts",postRouter)
 app.use("/api/user", userRouter)
+app.use("/api/public/posts",publicPostsRouter)
+
 
 //mongodb connection function call
 connectDB();
