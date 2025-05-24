@@ -47,6 +47,16 @@ export const getAllDatabasePostsByCategory=async (req,res)=>{
         res.status(500).json({error:"Failed to retrieve posts by catrgory"})
     }
 }
+export const getAllDatabaasePostsByTags=async(req,res)=>{
+    try {
+    const tag = req.params.tag;
+    const posts = await Blog.find({ tags: tag }).sort({ createdAt: -1 });
+    res.status(200).json(posts);
+  } catch (error) {
+    console.error("Error filtering by tag:", error);
+    res.status(500).json({ error: "Failed to fetch posts by tag" });
+}
+}
 
 export const postCommentsById=async(req,res)=>{
     try{

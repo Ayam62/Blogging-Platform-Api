@@ -12,4 +12,5 @@ postRouter.put("/update/:id",updateBlog)
 postRouter.delete("/delete/:id",deleteBlogs)
 
 
+
 export default postRouter

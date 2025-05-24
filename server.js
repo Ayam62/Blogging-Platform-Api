@@ -1,6 +1,5 @@
 
 import dotenv from "dotenv"
-
 import express from "express"
 import uploadRouter from "./routes/adminRoutes/uploadImageRoutes.js";
 import connectDB from "./configs/db.js";
