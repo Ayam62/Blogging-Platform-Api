@@ -9,6 +9,7 @@ import userRouter from "./routes/adminRoutes/userRoute.js";
 import publicPostsRouter from "./routes/publicRoutes/publicPostRouter.js"
 
 
+
 dotenv.config();
 
 const app=express();
@@ -17,7 +18,6 @@ const PORT= process.env.PORT || 8000
 //middlewares
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
-
 
 //routes for admin
 app.use("/api/auth",authRouter)
@@ -33,6 +33,8 @@ connectDB();
 app.get("/",(req,res)=>{
     res.send("Hello world")
 })
+
+
 //listening to port
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)
